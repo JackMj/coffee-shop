@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage("Git checkout") {
             steps{
-                git 'https://github.com/JackMj/coffee-shop.git'
+                git branch: 'coffee-shop', url: 'https://github.com/JackMj/coffee-shop.git'
             }
         }
         stage("Maven Build") {
