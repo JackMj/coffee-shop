@@ -1,6 +1,12 @@
-FROM docker.sebastian-daschner.com/open-liberty:2
+FROM openliberty/open-liberty:kernel-java8-openj9-ubi
 
-ENV JVM_ARGS="-Xmx512M"
+ARG VERSION=1.0
+ARG REVISION=SNAPSHOT
 
+
+COPY --chown=1001:0 src/main/liberty/config/ /config/
+COPY --chown=1001:0 target/*.war /config/apps/
 COPY openliberty/server.xml $CONFIG_DIR
-COPY target/coffee-shop.war $DEPLOYMENT_DIR
+
+RUN configure.sh
+
