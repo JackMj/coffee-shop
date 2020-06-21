@@ -1,12 +1,10 @@
 pipeline{
     agent any
     environment{
-        PATH = "/opt/maven-3.6/bin:$PATH"
+        PATH = "/opt/maven-3.6/bin:$PATH",
+        DOCKER_TAG = getDockerTag()
     }
     stages{
-        environment{
-            DOCKER_TAG = getDockerTag()
-        }
         stage("Maven Build") {
             steps{
                 sh "mvn clean"
