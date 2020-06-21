@@ -12,7 +12,7 @@ pipeline{
         }
         stage("Build Docker Image") {
             steps() {
-                sh "docker build -t coffee-shop:${DOCKER_TAG} "
+                sh "docker build -t coffee-shop:${DOCKER_TAG} ."
             }
         }
     }
