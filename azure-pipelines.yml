@@ -11,7 +11,8 @@ pool:
 
 steps:
 
-- script: echo "Hellow world"
+- script: $pomXml = 'pom.xml'
+- script: $pomXml = Get-Content $filePath
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
