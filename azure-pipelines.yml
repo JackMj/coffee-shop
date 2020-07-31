@@ -11,8 +11,9 @@ pool:
 
 steps:
 
-- script: $pomXml = 'pom.xml'
-- script: $pomXml = Get-Content $filePath
+- task: PowerShell@2
+- powershell: echo "Hello world"
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
