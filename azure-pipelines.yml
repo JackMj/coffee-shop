@@ -1,8 +1,4 @@
 # Maven
-- task: Bash@3
-  inputs:
-    filePath: './'
-  - script: echo "hellow world"
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -14,6 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- script: echo "Hellow world"
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -24,3 +22,5 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'install'
+    
+
