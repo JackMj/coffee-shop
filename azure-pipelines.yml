@@ -26,3 +26,7 @@ steps:
     goals: 'install'
     
 
+- task: lambda3docker@0
+  inputs:
+    command: 'build'
+    imageBuild: 'coffee-shop'
