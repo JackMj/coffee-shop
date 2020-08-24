@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  imageName: 'coffee-shop'
+
 steps:
 
 - task: Maven@3
@@ -22,7 +25,9 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'install'
     
-- task: lambda3docker@0
+- task: Docker@2
+  displayName: Build an image
   inputs:
-    command: 'build'
-    imageBuild: 'coffee-shop'
+    repository: $(imageName):v1
+    command: build
+    Dockerfile: app/Dockerfile
