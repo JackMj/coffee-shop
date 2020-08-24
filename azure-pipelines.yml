@@ -30,4 +30,4 @@ steps:
   inputs:
     repository: $(imageName):v1
     command: build
-    Dockerfile: app/Dockerfile
+    Dockerfile: Dockerfile
